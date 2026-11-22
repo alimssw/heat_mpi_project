@@ -35,6 +35,10 @@ int main(int argc, char** argv) {
             "error: r=%g is unstable. The explicit scheme needs 0 < r <= 0.25.\n", c.r);
         return 1;
     }
+    if (c.decomp != "serial") {
+        std::fprintf(stderr, "error: --decomp %s is not implemented yet, only serial\n", c.decomp.c_str());
+        return 1;
+    }
     if (c.steps < 0 && c.T < 0.0) {
         std::fprintf(stderr, "error: give --steps or --T\n");
         return 1;
