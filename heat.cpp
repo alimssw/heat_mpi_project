@@ -1,7 +1,9 @@
+#include <chrono>
 #include <cmath>
-#include <vector>
 #include <cstdio>
 #include <string>
+#include <utility>
+#include <vector>
 
 struct Config {
     std::string kase = "V";        // "1", "2" or "V"
@@ -35,9 +37,8 @@ int main(int argc, char** argv) {
         std::fprintf(stderr, "error: give --steps or --T\n");
         return 1;
     }
-    std::printf("case=%s N=%d r=%g steps=%d T=%g decomp=%s\n",
-                c.kase.c_str(), c.N, c.r, c.steps, c.T, c.decomp.c_str());
 
+    // Grid
     const int N = c.N;
     const int n = N + 1;                 // nodes per direction, boundary included
     const double h = 1.0 / N;            // grid spacing
@@ -51,8 +52,47 @@ int main(int argc, char** argv) {
         for (int i = 1; i < N; ++i)
             u_old[idx(i, j)] = std::sin(pi * i * h) * std::sin(pi * j * h);
 
-    // temporary check, delete later
-    std::printf("centre=%.6f quarter=%.6f corner=%.6f\n",
-                u_old[idx(N / 2, N / 2)], u_old[idx(N / 4, N / 2)], u_old[idx(0, 0)]);
+    // Time step. alpha = 1, so dt = r * h^2.
+    int steps = c.steps;
+    double r = c.r;
+    if (c.T > 0.0) {   // --T given: choose steps so T/dt is a whole number and r is not exceeded
+        steps = (int)std::ceil(c.T / (c.r * h * h));
+        r = c.T / steps / (h * h);
+    }
+    const double dt = r * h * h;
+    const double T = steps * dt;
+
+    // Time loop (only this part is timed)
+    auto t0 = std::chrono::steady_clock::now();
+    for (int s = 0; s < steps; ++s) {
+        for (int j = 1; j < N; ++j)
+            for (int i = 1; i < N; ++i)
+                u_new[idx(i, j)] = (1.0 - 4.0 * r) * u_old[idx(i, j)]
+                                 + r * (u_old[idx(i + 1, j)] + u_old[idx(i - 1, j)]
+                                      + u_old[idx(i, j + 1)] + u_old[idx(i, j - 1)]);
+        std::swap(u_old, u_new);
+    }
+    auto t1 = std::chrono::steady_clock::now();
+    const double t_total = std::chrono::duration<double>(t1 - t0).count();
+
+    // Error against the exact solution (test V only)
+    double err_inf = 0.0, err_sum = 0.0;
+    if (c.kase == "V") {
+        const double decay = std::exp(-2.0 * pi * pi * T);
+        for (int j = 0; j <= N; ++j)
+            for (int i = 0; i <= N; ++i) {
+                const double exact = std::sin(pi * i * h) * std::sin(pi * j * h) * decay;
+                const double e = std::fabs(u_old[idx(i, j)] - exact);
+                if (e > err_inf) err_inf = e;
+                err_sum += e * e;
+            }
+    }
+    const double err_2 = std::sqrt(h * h * err_sum);
+
+    // One summary line in key=value form
+    std::printf("decomp=%s P=1 N=%d r=%g steps=%d T=%g t_total=%.6f t_comp=%.6f t_comm=0",
+                c.decomp.c_str(), N, r, steps, T, t_total, t_total);
+    if (c.kase == "V") std::printf(" err_inf=%.6e err_2=%.6e", err_inf, err_2);
+    std::printf("\n");
     return 0;
 }
