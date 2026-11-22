@@ -3,7 +3,7 @@
 CXX      = mpicxx
 CXXFLAGS = -std=c++17 -O2 -ffp-contract=off -Wall -Wextra -DOMPI_SKIP_MPICXX
 
-all: hello pingpong
+all: hello pingpong heat
 
 hello: hello.cpp
 > $(CXX) $(CXXFLAGS) -o $@ $<
@@ -12,4 +12,7 @@ pingpong: pingpong.cpp
 > $(CXX) $(CXXFLAGS) -o $@ $<
 
 clean:
-> rm -f hello pingpong
+> rm -f hello pingpong heat
+
+heat: heat.cpp
+> $(CXX) $(CXXFLAGS) -o $@ $<
