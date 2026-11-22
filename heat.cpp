@@ -13,6 +13,7 @@ struct Config {
     double T = -1.0;               // -1 means not given
     std::string out;               // empty means no output file
     std::string decomp = "serial";
+    bool allow_unstable = false;   // Task 6.7 only: run above the stability limit on purpose
 };
 
 int main(int argc, char** argv) {
@@ -26,9 +27,10 @@ int main(int argc, char** argv) {
         else if (key == "--T")      c.T = std::stod(val);
         else if (key == "--out")    c.out = val;
         else if (key == "--decomp") c.decomp = val;
+        else if (key == "--allow-unstable") c.allow_unstable = (val == "1");
         else { std::fprintf(stderr, "error: unknown option %s\n", key.c_str()); return 1; }
     }
-    if (c.r <= 0.0 || c.r > 0.25) {
+    if (c.r <= 0.0 || (c.r > 0.25 && !c.allow_unstable)) {
         std::fprintf(stderr,
             "error: r=%g is unstable. The explicit scheme needs 0 < r <= 0.25.\n", c.r);
         return 1;
