@@ -46,11 +46,23 @@ int main(int argc, char** argv) {
 
     std::vector<double> u_old(n * n, 0.0), u_new(n * n, 0.0);
 
-    // Test V initial condition: sin(pi x) sin(pi y) inside, 0 on all four edges
+    // Initial and boundary values. Interior starts at 0 for Cases 1 and 2.
     const double pi = std::acos(-1.0);
-    for (int j = 1; j < N; ++j)
-        for (int i = 1; i < N; ++i)
-            u_old[idx(i, j)] = std::sin(pi * i * h) * std::sin(pi * j * h);
+    if (c.kase == "V") {
+        for (int j = 1; j < N; ++j)
+            for (int i = 1; i < N; ++i)
+                u_old[idx(i, j)] = std::sin(pi * i * h) * std::sin(pi * j * h);
+    } else if (c.kase == "1" || c.kase == "2") {
+        for (int i = 0; i <= N; ++i)              // bottom (y=0) and top (y=1) edges, corners included
+            u_old[idx(i, 0)] = u_old[idx(i, N)] = 1.0;
+        if (c.kase == "1")
+            for (int j = 0; j <= N; ++j)          // left and right edges too
+                u_old[idx(0, j)] = u_old[idx(N, j)] = 1.0;
+        u_new = u_old;                            // edge values must be in both arrays
+    } else {
+        std::fprintf(stderr, "error: --case must be 1, 2 or V\n");
+        return 1;
+    }
 
     // Time step. alpha = 1, so dt = r * h^2.
     int steps = c.steps;
@@ -94,5 +106,13 @@ int main(int argc, char** argv) {
                 c.decomp.c_str(), N, r, steps, T, t_total, t_total);
     if (c.kase == "V") std::printf(" err_inf=%.6e err_2=%.6e", err_inf, err_2);
     std::printf("\n");
+
+    // Full (N+1) x (N+1) field as raw doubles, row by row, no header
+    if (!c.out.empty()) {
+        std::FILE* f = std::fopen(c.out.c_str(), "wb");
+        if (!f) { std::fprintf(stderr, "error: cannot open %s\n", c.out.c_str()); return 1; }
+        std::fwrite(u_old.data(), sizeof(double), u_old.size(), f);
+        std::fclose(f);
+    }
     return 0;
 }
