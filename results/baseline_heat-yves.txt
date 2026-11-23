@@ -1,0 +1,15 @@
+decomp=serial P=1 Px=1 Py=1 N=512 r=0.24 steps=500 T=0.000457764 t_total=0.092036 t_comp=0.091949 t_comm=0.000087
+decomp=serial P=1 Px=1 Py=1 N=512 r=0.24 steps=500 T=0.000457764 t_total=0.093001 t_comp=0.092936 t_comm=0.000064
+decomp=serial P=1 Px=1 Py=1 N=512 r=0.24 steps=500 T=0.000457764 t_total=0.092982 t_comp=0.092907 t_comm=0.000075
+decomp=serial P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.478597 t_comp=0.478327 t_comm=0.000270
+decomp=serial P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.472731 t_comp=0.472452 t_comm=0.000279
+decomp=serial P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.464643 t_comp=0.464352 t_comm=0.000291
+decomp=serial P=1 Px=1 Py=1 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.964940 t_comp=1.964624 t_comm=0.000316
+decomp=serial P=1 Px=1 Py=1 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.985068 t_comp=1.984730 t_comm=0.000339
+decomp=serial P=1 Px=1 Py=1 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.980562 t_comp=1.980239 t_comm=0.000323
+decomp=serial P=1 Px=1 Py=1 N=4096 r=0.24 steps=500 T=7.15256e-06 t_total=8.030636 t_comp=8.030178 t_comm=0.000459
+decomp=serial P=1 Px=1 Py=1 N=4096 r=0.24 steps=500 T=7.15256e-06 t_total=8.206633 t_comp=8.206130 t_comm=0.000503
+decomp=serial P=1 Px=1 Py=1 N=4096 r=0.24 steps=500 T=7.15256e-06 t_total=8.316986 t_comp=8.316535 t_comm=0.000451
+decomp=serial P=1 Px=1 Py=1 N=8192 r=0.24 steps=500 T=1.78814e-06 t_total=31.934423 t_comp=31.933875 t_comm=0.000548
+decomp=serial P=1 Px=1 Py=1 N=8192 r=0.24 steps=500 T=1.78814e-06 t_total=33.041779 t_comp=33.041246 t_comm=0.000533
+decomp=serial P=1 Px=1 Py=1 N=8192 r=0.24 steps=500 T=1.78814e-06 t_total=31.635717 t_comp=31.635195 t_comm=0.000522
