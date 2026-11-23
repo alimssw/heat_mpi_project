@@ -27,7 +27,7 @@ This builds `heat`, `hello` and `pingpong` with `mpicxx -std=c++17 -O2 -ffp-cont
 | `--steps` | fixed number of time steps | none |
 | `--T` | final time; the step count is rounded up so T/dt is an integer and r is not exceeded | none |
 | `--out` | output file for the final field (optional) | none |
-| `--decomp` | `serial` (exactly 1 process) or `strips` (1D strips, any number of processes) | `serial` |
+| `--decomp` | `serial` (exactly 1 process), `strips` (1D strips) or `blocks` (2D process grid chosen by `MPI_Dims_create`) | `serial` |
 | `--allow-unstable 1` | permit r > 0.25, used only for Task 6.7 | off |
 
 One of `--steps` or `--T` is required.
@@ -36,7 +36,7 @@ One of `--steps` or `--T` is required.
 
 Standard output is one summary line in key=value form, for example
 
-    decomp=serial P=1 N=64 r=0.2 steps=1024 T=0.05 t_total=0.002568 t_comp=0.002568 t_comm=0 err_inf=1.034425e-04 err_2=5.172124e-05
+    decomp=serial P=1 Px=1 Py=1 N=64 r=0.2 steps=1024 T=0.05 t_total=0.002568 t_comp=0.002568 t_comm=0 err_inf=1.034425e-04 err_2=5.172124e-05
 
 `err_inf` and `err_2` appear only for `--case V`. Times are for the time-stepping loop only.
 
@@ -57,7 +57,7 @@ interface:
 heat-yves exposes 1 core with 2 threads, so a run on that VM alone with 2 processes needs
 `--use-hwthread-cpus`.
 
-## Strip version (Part 2)
+## Strip and block versions (Parts 2 and 3)
 
 On one VM (heat-ali has 2 cores with 2 threads each, hence the extra flag):
 
@@ -70,9 +70,10 @@ On the cluster:
            ./heat --decomp strips --case 2 --N 1024 --r 0.2 --steps 500 --out u.bin
 
 The summary line reports `t_total`, `t_comp` and `t_comm` (halo exchange), each the maximum over ranks.
-The output file is identical to the serial one. To check it for P = 1 to 4 and several N:
+Use `--decomp blocks` for the 2D block version. The summary line shows the process grid as `Px` and `Py`.
+The output file is identical to the serial one for both. To check strips and blocks for P = 1 to 8 and several N:
 
-    bash scripts/check_strips.sh
+    bash scripts/check_decomp.sh
 
 ## Network measurements
 
