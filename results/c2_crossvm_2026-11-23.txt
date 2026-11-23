@@ -1,0 +1,9 @@
+2026-11-23T18:32:18+02:00
+pong from heat-yves (100.115.74.114) via DERP(par) in 189ms
+pong from heat-yves (100.115.74.114) via DERP(par) in 278ms
+direct connection not established
+pong from heat-rael (100.83.134.68) via DERP(par) in 356ms
+pong from heat-rael (100.83.134.68) via DERP(par) in 314ms
+direct connection not established
+decomp=strips P=3 N=32 r=0.2 steps=20 T=0.00390625 t_total=3.660064 t_comp=0.000040 t_comm=3.660050
+3 VMs, P=3: identical to serial

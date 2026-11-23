@@ -27,7 +27,7 @@ This builds `heat`, `hello` and `pingpong` with `mpicxx -std=c++17 -O2 -ffp-cont
 | `--steps` | fixed number of time steps | none |
 | `--T` | final time; the step count is rounded up so T/dt is an integer and r is not exceeded | none |
 | `--out` | output file for the final field (optional) | none |
-| `--decomp` | `serial` (strips and blocks are not implemented yet) | `serial` |
+| `--decomp` | `serial` (exactly 1 process) or `strips` (1D strips, any number of processes) | `serial` |
 | `--allow-unstable 1` | permit r > 0.25, used only for Task 6.7 | off |
 
 One of `--steps` or `--T` is required.
@@ -56,6 +56,23 @@ interface:
 
 heat-yves exposes 1 core with 2 threads, so a run on that VM alone with 2 processes needs
 `--use-hwthread-cpus`.
+
+## Strip version (Part 2)
+
+On one VM (heat-ali has 2 cores with 2 threads each, hence the extra flag):
+
+    mpirun -np 4 --use-hwthread-cpus --mca btl tcp,self ./heat --decomp strips --case V --N 256 --r 0.2 --T 0.05
+
+On the cluster:
+
+    mpirun --hostfile hosts -np 8 \
+           --mca oob_tcp_if_include tailscale0 --mca btl_tcp_if_include tailscale0 --mca btl tcp,self \
+           ./heat --decomp strips --case 2 --N 1024 --r 0.2 --steps 500 --out u.bin
+
+The summary line reports `t_total`, `t_comp` and `t_comm` (halo exchange), each the maximum over ranks.
+The output file is identical to the serial one. To check it for P = 1 to 4 and several N:
+
+    bash scripts/check_strips.sh
 
 ## Network measurements
 
