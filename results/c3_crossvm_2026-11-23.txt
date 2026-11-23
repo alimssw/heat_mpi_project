@@ -1,0 +1,9 @@
+2026-11-23T18:58:42+02:00
+pong from heat-yves (100.115.74.114) via 62.84.71.82:57895 in 257ms
+pong from heat-rael (100.83.134.68) via DERP(par) in 396ms
+pong from heat-rael (100.83.134.68) via DERP(par) in 439ms
+direct connection not established
+decomp=strips P=8 Px=1 Py=8 N=65 r=0.2 steps=20 T=0.000946746 t_total=2.015951 t_comp=0.000023 t_comm=2.015928
+strips, 8 ranks on 3 VMs: identical to serial
+decomp=blocks P=8 Px=2 Py=4 N=65 r=0.2 steps=20 T=0.000946746 t_total=5.740523 t_comp=0.000024 t_comm=5.740508
+blocks, 8 ranks on 3 VMs: identical to serial
