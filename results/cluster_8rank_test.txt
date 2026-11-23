@@ -1,0 +1,19 @@
+2026-11-22T20:27:51+02:00
+=== MPI hostname test ===
+heat-rael
+heat-rael
+heat-ali
+heat-ali
+heat-ali
+heat-ali
+heat-yves
+heat-yves
+=== MPI Hello World ===
+rank 0 of 8 on heat-rael
+rank 1 of 8 on heat-rael
+rank 3 of 8 on heat-ali
+rank 4 of 8 on heat-ali
+rank 5 of 8 on heat-ali
+rank 2 of 8 on heat-ali
+rank 7 of 8 on heat-yves
+rank 6 of 8 on heat-yves
