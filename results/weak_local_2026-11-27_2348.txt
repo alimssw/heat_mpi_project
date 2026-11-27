@@ -1,0 +1,17 @@
+# weak scaling mode=local per_process=1024x1024 steps=500 reps=3 P=[1 2 3 4] started 2026-11-27T23:48:38+02:00
+mode=local rep=1 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.476036 t_comp=0.475809 t_comm=0.000227
+mode=local rep=2 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.478450 t_comp=0.478234 t_comm=0.000216
+mode=local rep=3 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=500 T=0.000114441 t_total=0.519180 t_comp=0.518910 t_comm=0.000270
+mode=local rep=1 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=500 T=5.72327e-05 t_total=0.684817 t_comp=0.647845 t_comm=0.037996
+mode=local rep=2 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=500 T=5.72327e-05 t_total=0.660163 t_comp=0.626174 t_comm=0.043728
+mode=local rep=3 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=500 T=5.72327e-05 t_total=0.646815 t_comp=0.612795 t_comm=0.035766
+mode=local rep=1 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=500 T=3.81306e-05 t_total=0.973760 t_comp=0.915776 t_comm=0.184539
+mode=local rep=2 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=500 T=3.81306e-05 t_total=0.962083 t_comp=0.871407 t_comm=0.152637
+mode=local rep=3 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=500 T=3.81306e-05 t_total=0.920989 t_comp=0.876378 t_comm=0.112042
+mode=local rep=1 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.105931 t_comp=1.032098 t_comm=0.147080
+mode=local rep=2 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.147806 t_comp=1.039258 t_comm=0.185463
+mode=local rep=3 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.163119 t_comp=1.087240 t_comm=0.162309
+mode=local rep=1 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.171268 t_comp=1.051584 t_comm=0.172546
+mode=local rep=2 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.154878 t_comp=1.044228 t_comm=0.143680
+mode=local rep=3 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=500 T=2.86102e-05 t_total=1.173000 t_comp=1.041241 t_comm=0.150011
+# finished 2026-11-27T23:48:56+02:00

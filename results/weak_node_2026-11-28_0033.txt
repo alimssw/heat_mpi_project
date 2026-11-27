@@ -1,0 +1,51 @@
+# weak scaling mode=node per_process=1024x1024 steps=100 reps=3 P=[1 2 3 4 5 6 7 8] started 2026-11-28T00:33:50+02:00
+# 2026-11-28T00:33:50+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 11ms
+# 2026-11-28T00:33:50+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 45ms
+mode=node rep=1 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=100 T=2.28882e-05 t_total=0.091333 t_comp=0.091299 t_comm=0.000034
+mode=node rep=2 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=100 T=2.28882e-05 t_total=0.093061 t_comp=0.093014 t_comm=0.000047
+mode=node rep=3 decomp=strips P=1 Px=1 Py=1 N=1024 r=0.24 steps=100 T=2.28882e-05 t_total=0.091518 t_comp=0.091479 t_comm=0.000039
+# 2026-11-28T00:33:55+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 13ms
+# 2026-11-28T00:33:55+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 45ms
+mode=node rep=1 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=100 T=1.14465e-05 t_total=10.893075 t_comp=0.125668 t_comm=10.785019
+mode=node rep=2 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=100 T=1.14465e-05 t_total=8.719595 t_comp=0.124275 t_comm=8.609713
+mode=node rep=3 decomp=strips P=2 Px=1 Py=2 N=1448 r=0.24 steps=100 T=1.14465e-05 t_total=11.369180 t_comp=0.128097 t_comm=11.258645
+# 2026-11-28T00:34:37+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 13ms
+# 2026-11-28T00:34:37+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 45ms
+mode=node rep=1 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=100 T=7.62613e-06 t_total=26.525245 t_comp=0.166550 t_comm=26.418819
+mode=node rep=2 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=100 T=7.62613e-06 t_total=26.392458 t_comp=0.158162 t_comm=26.251322
+mode=node rep=3 decomp=strips P=3 Px=1 Py=3 N=1774 r=0.24 steps=100 T=7.62613e-06 t_total=26.992179 t_comp=0.165882 t_comm=26.846616
+# 2026-11-28T00:36:03+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 20ms
+# 2026-11-28T00:36:03+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 104ms
+mode=node rep=1 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=55.007185 t_comp=0.160056 t_comm=54.847129
+mode=node rep=2 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=65.314891 t_comp=0.155913 t_comm=65.158979
+mode=node rep=3 decomp=strips P=4 Px=1 Py=4 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=54.757009 t_comp=0.144956 t_comm=54.612053
+mode=node rep=1 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=40.496728 t_comp=0.148205 t_comm=40.387321
+mode=node rep=2 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=40.531993 t_comp=0.146140 t_comm=40.424337
+mode=node rep=3 decomp=blocks P=4 Px=2 Py=2 N=2048 r=0.24 steps=100 T=5.72205e-06 t_total=37.161960 t_comp=0.146456 t_comm=37.052241
+# 2026-11-28T00:41:12+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 13ms
+# 2026-11-28T00:41:12+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 46ms
+mode=node rep=1 decomp=strips P=5 Px=1 Py=5 N=2290 r=0.24 steps=100 T=4.57657e-06 t_total=72.722596 t_comp=0.167601 t_comm=72.555900
+mode=node rep=2 decomp=strips P=5 Px=1 Py=5 N=2290 r=0.24 steps=100 T=4.57657e-06 t_total=65.238109 t_comp=0.160783 t_comm=65.077325
+mode=node rep=3 decomp=strips P=5 Px=1 Py=5 N=2290 r=0.24 steps=100 T=4.57657e-06 t_total=65.603208 t_comp=0.167724 t_comm=65.436613
+# 2026-11-28T00:44:43+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 11ms
+# 2026-11-28T00:44:43+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 45ms
+mode=node rep=1 decomp=strips P=6 Px=1 Py=6 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=99.537388 t_comp=0.169418 t_comm=99.375142
+mode=node rep=2 decomp=strips P=6 Px=1 Py=6 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=95.302694 t_comp=0.167742 t_comm=95.134952
+mode=node rep=3 decomp=strips P=6 Px=1 Py=6 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=86.983692 t_comp=0.176989 t_comm=86.861984
+mode=node rep=1 decomp=blocks P=6 Px=2 Py=3 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=57.835097 t_comp=0.174015 t_comm=57.696539
+mode=node rep=2 decomp=blocks P=6 Px=2 Py=3 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=58.253185 t_comp=0.169722 t_comm=58.129485
+mode=node rep=3 decomp=blocks P=6 Px=2 Py=3 N=2508 r=0.24 steps=100 T=3.81554e-06 t_total=65.517941 t_comp=0.178396 t_comm=65.402975
+# 2026-11-28T00:52:45+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 10ms
+# 2026-11-28T00:52:45+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 46ms
+mode=node rep=1 decomp=strips P=7 Px=1 Py=7 N=2709 r=0.24 steps=100 T=3.27034e-06 t_total=116.685686 t_comp=0.174628 t_comm=116.542666
+mode=node rep=2 decomp=strips P=7 Px=1 Py=7 N=2709 r=0.24 steps=100 T=3.27034e-06 t_total=114.267744 t_comp=0.181508 t_comm=114.129566
+mode=node rep=3 decomp=strips P=7 Px=1 Py=7 N=2709 r=0.24 steps=100 T=3.27034e-06 t_total=116.611872 t_comp=0.174605 t_comm=116.473829
+# 2026-11-28T00:58:49+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61821 in 13ms
+# 2026-11-28T00:58:49+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 46ms
+mode=node rep=1 decomp=strips P=8 Px=1 Py=8 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=130.615189 t_comp=0.184950 t_comm=130.480795
+mode=node rep=2 --------------------------------------------------------------------------
+mode=node rep=3 --------------------------------------------------------------------------
+mode=node rep=1 --------------------------------------------------------------------------
+mode=node rep=2 --------------------------------------------------------------------------
+mode=node rep=3 --------------------------------------------------------------------------
+# finished 2026-11-28T01:18:10+02:00
