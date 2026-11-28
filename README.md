@@ -98,3 +98,33 @@ The output file is identical to the serial one for both. To check strips and blo
 - `scripts/`: fitting and plotting scripts
 - `results/`: raw measurements, tables and plots
 - `llm_log/`: LLM interaction logs
+
+## Performance study (Part 4)
+
+All runs use Case 2, r = 0.24, a fixed number of steps and three repeats. Run from the repository root.
+
+    bash scripts/run_baseline.sh            # on each VM: serial, N = 512 to 8192 -> results/baseline_<host>.txt
+    bash scripts/run_scaling.sh local       # strong scaling, P = 1..4 on this VM, 500 steps
+    bash scripts/run_scaling.sh slot        # cluster, each VM filled before the next (--map-by slot), 100 steps
+    bash scripts/run_scaling.sh node        # cluster, round-robin across VMs (--map-by node), 100 steps
+    bash scripts/run_weak.sh local|slot|node   # weak scaling, about 1024 x 1024 nodes per process
+
+The cluster modes are launched from heat-ali and record the Tailscale path to each VM before every
+group of runs. Blocks are run at P = 4, 6, 8 only; for other P the block grid is the strip layout.
+Optional environment variables: STEPS, REPS, NLIST, PLIST, TAG, TIMEOUT.
+
+    python3 scripts/analyze_scaling.py      # results/scaling_summary.md and the scaling figures
+    python3 scripts/analyze_model.py        # results/model_summary.md, model_vs_measured.png, weak_scaling.png
+
+## Live demo
+
+    bash scripts/demo.sh                    # Cases 1 and 2 on the three VMs, then heat maps
+
+Runs 8 processes with the block layout at N = 64 and writes `results/demo_case1.png` and
+`results/demo_case2.png`. Change the run with N, P, DECOMP or STEPLIST, for example
+`N=128 P=6 DECOMP=strips bash scripts/demo.sh`.
+
+## Report
+
+`report.pdf` is the project report; `background_notes_solutions.pdf` holds the solutions to the
+background notes. `results/fig_decomp.png` is the figure of the two decompositions.
