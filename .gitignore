@@ -3,3 +3,4 @@ hello
 pingpong
 build/
 heat
+__pycache__/

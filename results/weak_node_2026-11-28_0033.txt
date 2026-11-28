@@ -49,3 +49,13 @@ mode=node rep=1 ----------------------------------------------------------------
 mode=node rep=2 --------------------------------------------------------------------------
 mode=node rep=3 --------------------------------------------------------------------------
 # finished 2026-11-28T01:18:10+02:00
+# weak scaling mode=node per_process=1024x1024 steps=100 reps=3 P=[8] started 2026-11-28T10:33:25+02:00
+# 2026-11-28T10:33:25+02:00 path to heat-yves: pong from heat-yves (100.115.74.114) via 185.192.162.114:61813 in 11ms
+# 2026-11-28T10:33:25+02:00 path to heat-rael: pong from heat-rael (100.83.134.68) via 94.187.14.160:1729 in 46ms
+mode=node rep=1 decomp=strips P=8 Px=1 Py=8 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=113.688171 t_comp=0.177571 t_comm=113.548324
+mode=node rep=2 decomp=strips P=8 Px=1 Py=8 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=112.655940 t_comp=0.179482 t_comm=112.514532
+mode=node rep=3 decomp=strips P=8 Px=1 Py=8 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=112.518122 t_comp=0.184621 t_comm=112.382772
+mode=node rep=1 decomp=blocks P=8 Px=2 Py=4 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=75.331345 t_comp=0.176189 t_comm=75.207902
+mode=node rep=2 decomp=blocks P=8 Px=2 Py=4 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=72.015443 t_comp=0.170772 t_comm=71.850046
+mode=node rep=3 decomp=blocks P=8 Px=2 Py=4 N=2896 r=0.24 steps=100 T=2.86163e-06 t_total=72.121386 t_comp=0.177162 t_comm=71.995302
+# finished 2026-11-28T10:43:00+02:00

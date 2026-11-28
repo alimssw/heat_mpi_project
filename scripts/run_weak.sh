@@ -31,7 +31,7 @@ for P in $PLIST; do
       case $P in 4|6|8) ;; *) continue ;; esac
     fi
     for rep in $(seq $REPS); do
-      line=$(timeout ${TIMEOUT:-900} mpirun $WHERE -np $P $NET \
+      line=$(timeout --foreground ${TIMEOUT:-900} mpirun $WHERE -np $P $NET \
                ./heat --decomp $decomp --case 2 --N $N --r 0.24 --steps $STEPS 2>&1 | tail -1)
       echo "mode=$mode rep=$rep $line" | tee -a "$out"
     done
